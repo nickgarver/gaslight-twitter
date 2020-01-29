@@ -44,7 +44,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'better_errors', '~> 2.1', '>= 2.1.1'
-  gem 'guard', '~> 2.16', '>= 2.16.1'
 end
 
 group :test do

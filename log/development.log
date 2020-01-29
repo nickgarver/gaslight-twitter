@@ -193,3 +193,619 @@ Processing by TweetsController#index as HTML
 Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.1ms | Allocations: 4455)
 
 
+Started GET "/" for ::1 at 2020-01-28 18:58:42 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/tweets/index.html.erb:14
+  Rendered tweets/index.html.erb within layouts/application (Duration: 7.1ms | Allocations: 1354)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1384ms (Views: 1368.4ms | ActiveRecord: 0.6ms | Allocations: 123784)
+
+
+Started GET "/tweets/new" for ::1 at 2020-01-28 18:58:55 -0500
+Processing by TweetsController#new as HTML
+  Rendering tweets/new.html.erb within layouts/application
+  Rendered tweets/_form.html.erb (Duration: 15.0ms | Allocations: 3967)
+  Rendered tweets/new.html.erb within layouts/application (Duration: 22.5ms | Allocations: 4309)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 38ms (Views: 31.9ms | ActiveRecord: 0.4ms | Allocations: 10671)
+
+
+Started POST "/tweets" for ::1 at 2020-01-28 18:58:59 -0500
+Processing by TweetsController#create as HTML
+  Parameters: {"authenticity_token"=>"7OCehnPtKFpdqGYCmdxUP2w/F9O0Jb1fqL8p5wX6Hb6pSlxXmEKOrsVvCwSRLbTI4TEKrPwtIe8ztAt+4P5qjQ==", "tweet"=>{"tweet"=>"hi"}, "commit"=>"Create Tweet"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tweets_controller.rb:30:in `block in create'
+  [1m[36mTweet Create (0.5ms)[0m  [1m[32mINSERT INTO "tweets" ("tweet", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tweet", "hi"], ["created_at", "2020-01-28 23:58:59.802522"], ["updated_at", "2020-01-28 23:58:59.802522"]]
+  ↳ app/controllers/tweets_controller.rb:30:in `block in create'
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tweets_controller.rb:30:in `block in create'
+Redirected to http://localhost:3000/tweets/2
+Completed 302 Found in 10ms (ActiveRecord: 2.7ms | Allocations: 2697)
+
+
+Started GET "/tweets/2" for ::1 at 2020-01-28 18:58:59 -0500
+Processing by TweetsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:67:in `set_tweet'
+  Rendering tweets/show.html.erb within layouts/application
+  Rendered tweets/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 228)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 10.7ms | ActiveRecord: 0.3ms | Allocations: 5472)
+
+
+DEPRECATION WARNING: Using `bin/rake routes` is deprecated and will be removed in Rails 6.1. Use `bin/rails routes` instead.
+ (called from load at /Users/luna/.rbenv/versions/2.7.0/bin/rake:23)
+DEPRECATION WARNING: Using `bin/rake routes` is deprecated and will be removed in Rails 6.1. Use `bin/rails routes` instead.
+ (called from load at /Users/luna/.rbenv/versions/2.7.0/bin/rake:23)
+Started GET "/" for ::1 at 2020-01-29 12:18:20 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/tweets/index.html.erb:14
+  Rendered tweets/index.html.erb within layouts/application (Duration: 13.2ms | Allocations: 3952)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 75ms (Views: 57.6ms | ActiveRecord: 1.4ms | Allocations: 14319)
+
+
+Started GET "/" for ::1 at 2020-01-29 12:21:47 -0500
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.1ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/tweets/index.html.erb:14
+  Rendered tweets/index.html.erb within layouts/application (Duration: 8.5ms | Allocations: 4041)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 70ms (Views: 60.4ms | ActiveRecord: 0.7ms | Allocations: 14242)
+
+
+Started GET "/" for ::1 at 2020-01-29 12:32:37 -0500
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/tweets/index.html.erb:14
+  Rendered tweets/index.html.erb within layouts/application (Duration: 13.0ms | Allocations: 3542)
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 0.8ms | Allocations: 10104)
+
+
+
+SassC::SyntaxError - Error: media query expression must begin with '('
+        on line 18:1 of app/assets/stylesheets/application.scss
+>> .navbar-brand .title {
+
+   ^
+:
+  app/assets/stylesheets/application.scss:18:in `'
+  app/views/layouts/application.html.erb:8
+
+Started POST "/__better_errors/7bc6900bac39c603/variables" for ::1 at 2020-01-29 12:32:38 -0500
+Started GET "/" for ::1 at 2020-01-29 12:33:29 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.1ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/tweets/index.html.erb:14
+  Rendered tweets/index.html.erb within layouts/application (Duration: 11.5ms | Allocations: 741)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.1ms | Allocations: 3889)
+
+
+
+SassC::SyntaxError - Error: media query expression must begin with '('
+        on line 18:1 of app/assets/stylesheets/application.scss
+>> .navbar-brand .title {
+
+   ^
+:
+  app/assets/stylesheets/application.scss:18:in `'
+  app/views/layouts/application.html.erb:8
+
+Started POST "/__better_errors/893c5edf44b4acf8/variables" for ::1 at 2020-01-29 12:33:29 -0500
+Started GET "/" for ::1 at 2020-01-29 12:33:30 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.1ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/tweets/index.html.erb:14
+  Rendered tweets/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 732)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.1ms | Allocations: 3839)
+
+
+
+SassC::SyntaxError - Error: media query expression must begin with '('
+        on line 18:1 of app/assets/stylesheets/application.scss
+>> .navbar-brand .title {
+
+   ^
+:
+  app/assets/stylesheets/application.scss:18:in `'
+  app/views/layouts/application.html.erb:8
+
+Started POST "/__better_errors/19eb358353d72f75/variables" for ::1 at 2020-01-29 12:33:30 -0500
+Started GET "/" for ::1 at 2020-01-29 12:33:31 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.1ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/tweets/index.html.erb:14
+  Rendered tweets/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 732)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.1ms | Allocations: 3839)
+
+
+
+SassC::SyntaxError - Error: media query expression must begin with '('
+        on line 18:1 of app/assets/stylesheets/application.scss
+>> .navbar-brand .title {
+
+   ^
+:
+  app/assets/stylesheets/application.scss:18:in `'
+  app/views/layouts/application.html.erb:8
+
+Started POST "/__better_errors/b7bdcf77d10b3727/variables" for ::1 at 2020-01-29 12:33:31 -0500
+Started GET "/" for ::1 at 2020-01-29 12:33:32 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/tweets/index.html.erb:14
+  Rendered tweets/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 723)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms | Allocations: 3822)
+
+
+
+SassC::SyntaxError - Error: media query expression must begin with '('
+        on line 18:1 of app/assets/stylesheets/application.scss
+>> .navbar-brand .title {
+
+   ^
+:
+  app/assets/stylesheets/application.scss:18:in `'
+  app/views/layouts/application.html.erb:8
+
+Started POST "/__better_errors/a749b128cc5c0984/variables" for ::1 at 2020-01-29 12:33:32 -0500
+Started GET "/" for ::1 at 2020-01-29 12:33:44 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/tweets/index.html.erb:14
+  Rendered tweets/index.html.erb within layouts/application (Duration: 10.9ms | Allocations: 3758)
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 0.9ms | Allocations: 10813)
+
+
+
+SassC::SyntaxError - Error: media query expression must begin with '('
+        on line 18:1 of app/assets/stylesheets/application.scss
+>> .navbar-brand .title {
+
+   ^
+:
+  app/assets/stylesheets/application.scss:18:in `'
+  app/views/layouts/application.html.erb:8
+
+Started GET "/" for ::1 at 2020-01-29 12:33:44 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/tweets/index.html.erb:14
+  Rendered tweets/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 741)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.2ms | Allocations: 3849)
+
+
+
+SassC::SyntaxError - Error: media query expression must begin with '('
+        on line 18:1 of app/assets/stylesheets/application.scss
+>> .navbar-brand .title {
+
+   ^
+:
+  app/assets/stylesheets/application.scss:18:in `'
+  app/views/layouts/application.html.erb:8
+
+Started POST "/__better_errors/8520d7cd83722dfc/variables" for ::1 at 2020-01-29 12:33:45 -0500
+Started GET "/" for ::1 at 2020-01-29 12:36:13 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.1ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/tweets/index.html.erb:14
+  Rendered tweets/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 732)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1305ms (Views: 1304.4ms | ActiveRecord: 0.1ms | Allocations: 118123)
+
+
+Started GET "/tweets/new" for ::1 at 2020-01-29 12:36:42 -0500
+Processing by TweetsController#new as HTML
+  Rendering tweets/new.html.erb within layouts/application
+  Rendered tweets/_form.html.erb (Duration: 17.4ms | Allocations: 5521)
+  Rendered tweets/new.html.erb within layouts/application (Duration: 19.2ms | Allocations: 5864)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 28.8ms | ActiveRecord: 0.0ms | Allocations: 10182)
+
+
+Started GET "/tweets" for ::1 at 2020-01-29 12:36:44 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/tweets/index.html.erb:14
+  Rendered tweets/index.html.erb within layouts/application (Duration: 4.8ms | Allocations: 727)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 14.5ms | ActiveRecord: 0.2ms | Allocations: 4980)
+
+
+Started GET "/tweets" for ::1 at 2020-01-29 12:37:38 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.1ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/tweets/index.html.erb:14
+  Rendered tweets/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 966)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 12.6ms | ActiveRecord: 0.1ms | Allocations: 6439)
+
+
+Started GET "/tweets" for ::1 at 2020-01-29 13:20:12 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.8ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  Rendered tweets/_feed.html.erb (Duration: 7.5ms | Allocations: 2672)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 8.8ms | Allocations: 2968)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 37ms (Views: 28.2ms | ActiveRecord: 0.8ms | Allocations: 8789)
+
+
+Started GET "/tweets/new" for ::1 at 2020-01-29 13:20:28 -0500
+Processing by TweetsController#new as HTML
+  Rendering tweets/new.html.erb within layouts/application
+  Rendered tweets/_form.html.erb (Duration: 8.4ms | Allocations: 820)
+  Rendered tweets/new.html.erb within layouts/application (Duration: 10.3ms | Allocations: 1145)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 28ms (Views: 25.9ms | ActiveRecord: 0.0ms | Allocations: 5535)
+
+
+Started POST "/tweets" for ::1 at 2020-01-29 13:20:31 -0500
+Processing by TweetsController#create as HTML
+  Parameters: {"authenticity_token"=>"PjAxFBh7+qN4mRcuq44tNVrmPrJuKOfzEM40dEXHX697mvPF89RcV+Beeiijf83C1+gjzSYge0OLxRbtoMMonA==", "tweet"=>{"tweet"=>"me"}, "commit"=>"Create Tweet"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tweets_controller.rb:30:in `block in create'
+  [1m[36mTweet Create (0.6ms)[0m  [1m[32mINSERT INTO "tweets" ("tweet", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tweet", "me"], ["created_at", "2020-01-29 18:20:31.863990"], ["updated_at", "2020-01-29 18:20:31.863990"]]
+  ↳ app/controllers/tweets_controller.rb:30:in `block in create'
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tweets_controller.rb:30:in `block in create'
+Redirected to http://localhost:3000/tweets/3
+Completed 302 Found in 36ms (ActiveRecord: 1.7ms | Allocations: 2696)
+
+
+Started GET "/tweets/3" for ::1 at 2020-01-29 13:20:31 -0500
+Processing by TweetsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:67:in `set_tweet'
+  Rendering tweets/show.html.erb within layouts/application
+  Rendered tweets/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 228)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 17.3ms | ActiveRecord: 0.4ms | Allocations: 5514)
+
+
+Started GET "/tweets" for ::1 at 2020-01-29 13:20:34 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  Rendered tweets/_feed.html.erb (Duration: 1.5ms | Allocations: 614)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 673)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 14.6ms | ActiveRecord: 0.2ms | Allocations: 4946)
+
+
+Started GET "/tweets" for ::1 at 2020-01-29 13:20:38 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  Rendered tweets/_feed.html.erb (Duration: 1.5ms | Allocations: 614)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 673)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 0.2ms | Allocations: 4937)
+
+
+Started GET "/tweets" for ::1 at 2020-01-29 13:20:40 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  Rendered tweets/_feed.html.erb (Duration: 4.2ms | Allocations: 617)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 4.8ms | Allocations: 676)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 20.0ms | ActiveRecord: 0.4ms | Allocations: 4950)
+
+
+Started GET "/" for ::1 at 2020-01-29 13:20:42 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  Rendered tweets/_feed.html.erb (Duration: 4.6ms | Allocations: 614)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 6.1ms | Allocations: 673)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 28.3ms | ActiveRecord: 0.3ms | Allocations: 4963)
+
+
+Started GET "/" for ::1 at 2020-01-29 13:21:00 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  Rendered tweets/_feed.html.erb (Duration: 2.4ms | Allocations: 763)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1053)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 21.4ms | ActiveRecord: 0.2ms | Allocations: 6549)
+
+
+Started GET "/" for ::1 at 2020-01-29 13:21:47 -0500
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  Rendered tweets/_feed.html.erb (Duration: 6.4ms | Allocations: 3348)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 8.4ms | Allocations: 4039)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 80ms (Views: 69.3ms | ActiveRecord: 0.6ms | Allocations: 14473)
+
+
+Started GET "/" for ::1 at 2020-01-29 14:14:15 -0500
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.1ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  Rendered tweets/_feed.html.erb (Duration: 13.8ms | Allocations: 4276)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 15.9ms | Allocations: 4927)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 73ms (Views: 61.9ms | ActiveRecord: 1.7ms | Allocations: 15618)
+
+
+Started GET "/" for ::1 at 2020-01-29 14:16:37 -0500
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  Rendered tweets/_feed.html.erb (Duration: 8.6ms | Allocations: 3645)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 10.6ms | Allocations: 4057)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 51ms (Views: 42.4ms | ActiveRecord: 1.0ms | Allocations: 13686)
+
+
+Started DELETE "/tweets/3" for ::1 at 2020-01-29 14:16:57 -0500
+Processing by TweetsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"qSq2yFSFV0Z7akAQV3p59oCvktkXGPVd+YKlCQLdaP23yyYf8Jf43Ls2BaX7d7bNmJr5VeUBka62G3BsZhQbhg==", "id"=>"3"}
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:67:in `set_tweet'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tweets_controller.rb:57:in `destroy'
+  [1m[36mTweet Destroy (0.7ms)[0m  [1m[31mDELETE FROM "tweets" WHERE "tweets"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/tweets_controller.rb:57:in `destroy'
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tweets_controller.rb:57:in `destroy'
+Redirected to http://localhost:3000/tweets
+Completed 302 Found in 12ms (ActiveRecord: 2.2ms | Allocations: 3014)
+
+
+Started GET "/tweets" for ::1 at 2020-01-29 14:16:57 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  Rendered tweets/_feed.html.erb (Duration: 1.8ms | Allocations: 755)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 815)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.2ms | Allocations: 5726)
+
+
+Started GET "/tweets" for ::1 at 2020-01-29 14:17:02 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  Rendered tweets/_feed.html.erb (Duration: 1.5ms | Allocations: 760)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 820)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.5ms | ActiveRecord: 0.2ms | Allocations: 5754)
+
+
+Started GET "/tweets/2" for ::1 at 2020-01-29 14:17:20 -0500
+Processing by TweetsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTweet Load (0.1ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:67:in `set_tweet'
+  Rendering tweets/show.html.erb within layouts/application
+  Rendered tweets/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 230)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 11.0ms | ActiveRecord: 0.1ms | Allocations: 5720)
+
+
+Started GET "/tweets" for ::1 at 2020-01-29 14:17:22 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  Rendered tweets/_feed.html.erb (Duration: 2.1ms | Allocations: 762)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 822)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.2ms | Allocations: 5712)
+
+
+Started GET "/tweets" for ::1 at 2020-01-29 14:30:01 -0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.1ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  Rendered tweets/_feed.html.erb (Duration: 1.8ms | Allocations: 1042)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.3ms | Allocations: 128)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1676)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 15.1ms | ActiveRecord: 0.1ms | Allocations: 7827)
+
+
+Started GET "/tweets" for ::1 at 2020-01-29 14:50:45 -0500
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  Rendered tweets/_form.html.erb (Duration: 6.6ms | Allocations: 4202)
+  Rendered tweets/_feed.html.erb (Duration: 8.1ms | Allocations: 4705)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 8.8ms | Allocations: 5019)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms | Allocations: 8599)
+
+
+
+NameError - uninitialized constant ActionView::Template::SyntaxErrorInTemplate
+Did you mean?  ActionView::SyntaxErrorInTemplate:
+  app/views/tweets/_feed.html.erb:9
+  app/views/tweets/index.html.erb:4
+
+Started POST "/__better_errors/a0dc7086abc99fcf/variables" for ::1 at 2020-01-29 14:50:45 -0500
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/tweets" for ::1 at 2020-01-29 14:50:52 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  Rendered tweets/_form.html.erb (Duration: 1.5ms | Allocations: 1380)
+  Rendered tweets/_feed.html.erb (Duration: 1.8ms | Allocations: 1445)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1506)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 1978)
+
+
+
+SyntaxError - syntax error, unexpected '\n', expecting =>
+/Users/luna/Dev/twitter/gaslight-twitter/app/views/tweets/_form.html.erb:6: syntax error, unexpected ',', expecting ')'
+    : {class: "label"},placeholder: "Make New Tweet"...
+                      ^
+:
+  app/views/tweets/_form.html.erb:5:in `'
+  app/views/tweets/_feed.html.erb:9
+  app/views/tweets/index.html.erb:4
+
+Started POST "/__better_errors/87e0dba42a52fdda/variables" for ::1 at 2020-01-29 14:50:52 -0500
+  [1m[36mTweet Load (1.0ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/tweets" for ::1 at 2020-01-29 14:52:55 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  Rendered tweets/_form.html.erb (Duration: 1.2ms | Allocations: 1388)
+  Rendered tweets/_feed.html.erb (Duration: 2.2ms | Allocations: 1887)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 2200)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 3509)
+
+
+
+SyntaxError - syntax error, unexpected '\n', expecting =>
+/Users/luna/Dev/twitter/gaslight-twitter/app/views/tweets/_form.html.erb:6: syntax error, unexpected ',', expecting ')'
+    : {class: "label"}, placeholder: "Make New Tweet...
+                      ^
+:
+  app/views/tweets/_form.html.erb:5:in `'
+  app/views/tweets/_feed.html.erb:9
+  app/views/tweets/index.html.erb:4
+
+Started POST "/__better_errors/799d659efc77a4ea/variables" for ::1 at 2020-01-29 14:52:55 -0500
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/tweets" for ::1 at 2020-01-29 14:53:16 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  Rendered tweets/_form.html.erb (Duration: 130.1ms | Allocations: 18208)
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  Rendered tweets/_feed.html.erb (Duration: 132.9ms | Allocations: 19441)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.5ms | Allocations: 133)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 134.8ms | Allocations: 20076)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 158ms (Views: 156.2ms | ActiveRecord: 0.2ms | Allocations: 26164)
+
+
+Started GET "/tweets" for ::1 at 2020-01-29 14:53:30 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  Rendered tweets/_form.html.erb (Duration: 4.9ms | Allocations: 3111)
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  Rendered tweets/_feed.html.erb (Duration: 7.6ms | Allocations: 4352)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.3ms | Allocations: 126)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 9.1ms | Allocations: 4978)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 0.2ms | Allocations: 11018)
+
+
+Started GET "/tweets" for ::1 at 2020-01-29 14:54:41 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  Rendered tweets/_form.html.erb (Duration: 5.5ms | Allocations: 3111)
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:14
+  Rendered tweets/_feed.html.erb (Duration: 9.2ms | Allocations: 4352)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.4ms | Allocations: 127)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 11.5ms | Allocations: 4977)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 28ms (Views: 25.4ms | ActiveRecord: 0.2ms | Allocations: 11000)
+
+
+Started GET "/tweets" for ::1 at 2020-01-29 14:55:41 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  Rendered tweets/_form.html.erb (Duration: 3.9ms | Allocations: 3116)
+  [1m[36mTweet Load (0.1ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:13
+  Rendered tweets/_feed.html.erb (Duration: 6.1ms | Allocations: 4356)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.3ms | Allocations: 126)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 7.6ms | Allocations: 4985)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 23.0ms | ActiveRecord: 0.1ms | Allocations: 11041)
+
+
+Started POST "/tweets" for ::1 at 2020-01-29 15:32:28 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TweetsController#create as HTML
+  Parameters: {"authenticity_token"=>"h3gv+Gi4oirYD1N+fimd6pBHNQfEZAPJEkT8KqWS64KZmb8vzKoNsBhTFsvSJFLRiHJeizZ9Zzpd3SlPwVuY+Q==", "tweet"=>{"tweet"=>"2nd tweet"}, "commit"=>"Create Tweet"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tweets_controller.rb:31:in `block in create'
+  [1m[36mTweet Create (0.4ms)[0m  [1m[32mINSERT INTO "tweets" ("tweet", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tweet", "2nd tweet"], ["created_at", "2020-01-29 20:32:28.609620"], ["updated_at", "2020-01-29 20:32:28.609620"]]
+  ↳ app/controllers/tweets_controller.rb:31:in `block in create'
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tweets_controller.rb:31:in `block in create'
+Redirected to http://localhost:3000/tweets/4
+Completed 302 Found in 15ms (ActiveRecord: 1.3ms | Allocations: 2594)
+
+
+Started GET "/tweets/4" for ::1 at 2020-01-29 15:32:28 -0500
+Processing by TweetsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:68:in `set_tweet'
+  Rendering tweets/show.html.erb within layouts/application
+  Rendered tweets/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 229)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 18.9ms | ActiveRecord: 0.2ms | Allocations: 5876)
+
+
+Started GET "/tweets" for ::1 at 2020-01-29 15:32:30 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  Rendered tweets/_form.html.erb (Duration: 9.7ms | Allocations: 2948)
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:13
+  Rendered tweets/_feed.html.erb (Duration: 13.0ms | Allocations: 3896)
+  Rendered tweets/_who-to-follow.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 13.5ms | Allocations: 4015)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 32ms (Views: 31.1ms | ActiveRecord: 0.3ms | Allocations: 8845)
+
+
