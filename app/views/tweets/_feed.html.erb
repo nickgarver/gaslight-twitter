@@ -25,7 +25,9 @@
         <div class="content">
           <strong><%= post.user.name%></strong>
           <small><%= "@" + post.user.username%></small>
+          <% if user_signed_in? %>
           <%= render "follow_button", :oUser => post.user %>
+          <% end %>
           <p><%= post.tweet %></p>
         </div>
 

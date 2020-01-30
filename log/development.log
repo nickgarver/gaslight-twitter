@@ -7943,3 +7943,1289 @@ Processing by TweetsController#index as HTML
 Completed 200 OK in 39ms (Views: 36.3ms | ActiveRecord: 1.5ms | Allocations: 19042)
 
 
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2020-01-30 15:13:16 -0500
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:4
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:32
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:38
+  Rendered tweets/_profile.html.erb (Duration: 22.7ms | Allocations: 9017)
+  Rendered tweets/_form.html.erb (Duration: 35.0ms | Allocations: 11362)
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_follow_button.html.erb (Duration: 1.0ms | Allocations: 282)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 5], ["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:26:in `following?'
+  [1m[36mRelationship Load (0.5ms)[0m  [1m[34mSELECT "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ? AND "relationships"."followed_id" = ? LIMIT ?[0m  [["follower_id", 5], ["followed_id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_follow_button.html.erb:9
+  Rendered tweets/_follow_button.html.erb (Duration: 10.6ms | Allocations: 4243)
+  Rendered tweets/_feed.html.erb (Duration: 62.2ms | Allocations: 20501)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 116.0ms | Allocations: 37119)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 191ms (Views: 167.6ms | ActiveRecord: 5.3ms | Allocations: 50355)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2020-01-30 15:13:26 -0500
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"IDrTM5XejAjEsqs9QwOCgh3Dt4pBbZi3y+qKS9A+53Eirm6Q8iCZeort1+9i0d8xYopf5R3tWwzxtOExnV17Ig=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 11ms (ActiveRecord: 0.2ms | Allocations: 2885)
+
+
+Started GET "/" for ::1 at 2020-01-30 15:13:26 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_follow_button.html.erb (Duration: 3.2ms | Allocations: 2099)
+  Rendered tweets/_feed.html.erb (Duration: 6.6ms | Allocations: 3555)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 8.8ms | Allocations: 3709)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.3ms | Allocations: 4199)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/tweets/_follow_button.html.erb:1
+  app/views/tweets/_feed.html.erb:28
+  app/views/tweets/_feed.html.erb:15
+  app/views/tweets/index.html.erb:7
+
+Started POST "/__better_errors/3c7c8f0f163385e8/variables" for ::1 at 2020-01-30 15:13:26 -0500
+Started POST "/__better_errors/3c7c8f0f163385e8/variables" for ::1 at 2020-01-30 15:14:18 -0500
+Started POST "/__better_errors/3c7c8f0f163385e8/variables" for ::1 at 2020-01-30 15:14:22 -0500
+Started GET "/" for ::1 at 2020-01-30 15:14:24 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_follow_button.html.erb (Duration: 1.8ms | Allocations: 1785)
+  Rendered tweets/_feed.html.erb (Duration: 7.0ms | Allocations: 3251)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 7.4ms | Allocations: 3391)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.4ms | Allocations: 3883)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/tweets/_follow_button.html.erb:1
+  app/views/tweets/_feed.html.erb:28
+  app/views/tweets/_feed.html.erb:15
+  app/views/tweets/index.html.erb:7
+
+Started POST "/__better_errors/432df4c51da1a913/variables" for ::1 at 2020-01-30 15:14:24 -0500
+Started GET "/" for ::1 at 2020-01-30 15:14:25 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_follow_button.html.erb (Duration: 1.7ms | Allocations: 1785)
+  Rendered tweets/_feed.html.erb (Duration: 7.7ms | Allocations: 3242)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 8.1ms | Allocations: 3381)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.5ms | Allocations: 3865)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/tweets/_follow_button.html.erb:1
+  app/views/tweets/_feed.html.erb:28
+  app/views/tweets/_feed.html.erb:15
+  app/views/tweets/index.html.erb:7
+
+Started POST "/__better_errors/dcc01654493bdf8b/variables" for ::1 at 2020-01-30 15:14:25 -0500
+Started GET "/" for ::1 at 2020-01-30 15:14:51 -0500
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_follow_button.html.erb (Duration: 6.6ms | Allocations: 2231)
+  Rendered tweets/_feed.html.erb (Duration: 44.4ms | Allocations: 11611)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 51.1ms | Allocations: 12175)
+Completed 500 Internal Server Error in 96ms (ActiveRecord: 2.6ms | Allocations: 17727)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/tweets/_follow_button.html.erb:1
+  app/views/tweets/_feed.html.erb:28
+  app/views/tweets/_feed.html.erb:15
+  app/views/tweets/index.html.erb:7
+
+Started POST "/__better_errors/b8513ad2140db909/variables" for ::1 at 2020-01-30 15:14:52 -0500
+Started GET "/tweets" for ::1 at 2020-01-30 15:14:57 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_follow_button.html.erb (Duration: 2.0ms | Allocations: 1785)
+  Rendered tweets/_feed.html.erb (Duration: 8.9ms | Allocations: 3251)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 9.4ms | Allocations: 3392)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.4ms | Allocations: 3885)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/tweets/_follow_button.html.erb:1
+  app/views/tweets/_feed.html.erb:28
+  app/views/tweets/_feed.html.erb:15
+  app/views/tweets/index.html.erb:7
+
+Started POST "/__better_errors/07c900bace467bae/variables" for ::1 at 2020-01-30 15:14:57 -0500
+Started GET "/tweets" for ::1 at 2020-01-30 15:14:58 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_follow_button.html.erb (Duration: 1.1ms | Allocations: 1785)
+  Rendered tweets/_feed.html.erb (Duration: 4.1ms | Allocations: 3251)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 3391)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.3ms | Allocations: 3883)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/tweets/_follow_button.html.erb:1
+  app/views/tweets/_feed.html.erb:28
+  app/views/tweets/_feed.html.erb:15
+  app/views/tweets/index.html.erb:7
+
+Started POST "/__better_errors/53fbc3179612f589/variables" for ::1 at 2020-01-30 15:14:58 -0500
+Started GET "/tweets" for ::1 at 2020-01-30 15:15:20 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_follow_button.html.erb (Duration: 2.2ms | Allocations: 2051)
+  Rendered tweets/_feed.html.erb (Duration: 10.4ms | Allocations: 4118)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 11.8ms | Allocations: 4544)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.6ms | Allocations: 5868)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/tweets/_follow_button.html.erb:1
+  app/views/tweets/_feed.html.erb:28
+  app/views/tweets/_feed.html.erb:15
+  app/views/tweets/index.html.erb:7
+
+Started POST "/__better_errors/2bf5cfedc58823a4/variables" for ::1 at 2020-01-30 15:15:20 -0500
+Started GET "/tweets" for ::1 at 2020-01-30 15:15:21 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_follow_button.html.erb (Duration: 2.8ms | Allocations: 1785)
+  Rendered tweets/_feed.html.erb (Duration: 7.1ms | Allocations: 3253)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 7.4ms | Allocations: 3394)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.3ms | Allocations: 3885)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/tweets/_follow_button.html.erb:1
+  app/views/tweets/_feed.html.erb:28
+  app/views/tweets/_feed.html.erb:15
+  app/views/tweets/index.html.erb:7
+
+Started POST "/__better_errors/030388a8028f0fd7/variables" for ::1 at 2020-01-30 15:15:21 -0500
+Started GET "/" for ::1 at 2020-01-30 15:15:23 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_follow_button.html.erb (Duration: 7.2ms | Allocations: 1784)
+  Rendered tweets/_feed.html.erb (Duration: 17.2ms | Allocations: 3241)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 17.6ms | Allocations: 3380)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.6ms | Allocations: 3864)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/tweets/_follow_button.html.erb:1
+  app/views/tweets/_feed.html.erb:28
+  app/views/tweets/_feed.html.erb:15
+  app/views/tweets/index.html.erb:7
+
+Started POST "/__better_errors/8fad28bea7972226/variables" for ::1 at 2020-01-30 15:15:23 -0500
+Started GET "/" for ::1 at 2020-01-30 15:15:27 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_follow_button.html.erb (Duration: 1.0ms | Allocations: 1784)
+  Rendered tweets/_feed.html.erb (Duration: 3.7ms | Allocations: 3241)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 3380)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.3ms | Allocations: 3864)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/tweets/_follow_button.html.erb:1
+  app/views/tweets/_feed.html.erb:28
+  app/views/tweets/_feed.html.erb:15
+  app/views/tweets/index.html.erb:7
+
+Started POST "/__better_errors/3e135b6913be6d97/variables" for ::1 at 2020-01-30 15:15:27 -0500
+Started GET "/" for ::1 at 2020-01-30 15:16:58 -0500
+Started GET "/" for ::1 at 2020-01-30 15:16:58 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TweetsController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TweetsController#index as HTML
+Started GET "/" for ::1 at 2020-01-30 15:16:58 -0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  Rendering tweets/index.html.erb within layouts/application
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.5ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  ↳ app/views/tweets/_feed.html.erb:20
+  ↳ app/views/tweets/_feed.html.erb:20
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_feed.html.erb (Duration: 79.5ms | Allocations: 14425)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_feed.html.erb (Duration: 78.4ms | Allocations: 14126)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 80.2ms | Allocations: 14564)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 88.9ms | Allocations: 15589)
+  Rendered tweets/_feed.html.erb (Duration: 84.6ms | Allocations: 15300)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 112.5ms | Allocations: 18048)
+Started GET "/" for ::1 at 2020-01-30 15:16:58 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.7ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_feed.html.erb (Duration: 15.8ms | Allocations: 2337)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 19.5ms | Allocations: 2763)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 89ms (Views: 85.7ms | ActiveRecord: 1.1ms | Allocations: 14943)
+
+
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 371ms (Views: 368.8ms | ActiveRecord: 0.9ms | Allocations: 43272)
+
+
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 467ms (Views: 385.1ms | ActiveRecord: 5.1ms | Allocations: 54500)
+
+
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 417ms (Views: 408.7ms | ActiveRecord: 1.8ms | Allocations: 50452)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-01-30 15:17:13 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.3ms | Allocations: 596)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 45.8ms | Allocations: 17358)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 61ms (Views: 57.8ms | ActiveRecord: 0.0ms | Allocations: 23821)
+
+
+Started POST "/users/sign_in" for ::1 at 2020-01-30 15:17:15 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"njrSe2wjMkKDb2ScpVCRSQC0zcT5WIaNj08hPO2lwjsJEs2Kjq+swGQlswKM8+eit0yQpzem8nyOiHyPhDKszg==", "user"=>{"email"=>"nickgarver1@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "nickgarver1@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 154ms (ActiveRecord: 2.4ms | Allocations: 4847)
+
+
+Started GET "/" for ::1 at 2020-01-30 15:17:16 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:4
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:32
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:38
+  Rendered tweets/_profile.html.erb (Duration: 25.3ms | Allocations: 7581)
+  Rendered tweets/_form.html.erb (Duration: 8.9ms | Allocations: 3435)
+  [1m[36mTweet Load (0.6ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_follow_button.html.erb (Duration: 11.2ms | Allocations: 4213)
+  Rendered tweets/_feed.html.erb (Duration: 27.6ms | Allocations: 9466)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 55.2ms | Allocations: 18158)
+Completed 500 Internal Server Error in 57ms (ActiveRecord: 3.2ms | Allocations: 18643)
+
+
+
+NoMethodError - undefined method `user_id' for #<User:0x00007fe605c26c38>:
+  app/views/tweets/_follow_button.html.erb:1
+  app/views/tweets/_feed.html.erb:29
+  app/views/tweets/_feed.html.erb:15
+  app/views/tweets/index.html.erb:7
+
+Started POST "/__better_errors/79e84fe4c564e4c8/variables" for ::1 at 2020-01-30 15:17:16 -0500
+Started GET "/" for ::1 at 2020-01-30 15:17:34 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:32
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:38
+  Rendered tweets/_profile.html.erb (Duration: 5.3ms | Allocations: 2873)
+  Rendered tweets/_form.html.erb (Duration: 4.5ms | Allocations: 3149)
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_follow_button.html.erb (Duration: 0.6ms | Allocations: 275)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 5], ["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:26:in `following?'
+  [1m[36mRelationship Load (1.5ms)[0m  [1m[34mSELECT "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ? AND "relationships"."followed_id" = ? LIMIT ?[0m  [["follower_id", 5], ["followed_id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_follow_button.html.erb:9
+  Rendered tweets/_follow_button.html.erb (Duration: 12.0ms | Allocations: 4276)
+  Rendered tweets/_feed.html.erb (Duration: 27.9ms | Allocations: 11078)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 36.2ms | Allocations: 15316)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 48ms (Views: 42.1ms | ActiveRecord: 3.6ms | Allocations: 21610)
+
+
+Started GET "/" for ::1 at 2020-01-30 15:17:36 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:4
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:32
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:38
+  Rendered tweets/_profile.html.erb (Duration: 4.5ms | Allocations: 2677)
+  Rendered tweets/_form.html.erb (Duration: 3.3ms | Allocations: 2981)
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_follow_button.html.erb (Duration: 0.1ms | Allocations: 9)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 5], ["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:26:in `following?'
+  [1m[36mRelationship Load (0.2ms)[0m  [1m[34mSELECT "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ? AND "relationships"."followed_id" = ? LIMIT ?[0m  [["follower_id", 5], ["followed_id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_follow_button.html.erb:9
+  Rendered tweets/_follow_button.html.erb (Duration: 7.8ms | Allocations: 1808)
+  Rendered tweets/_feed.html.erb (Duration: 20.0ms | Allocations: 7385)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 27.2ms | Allocations: 11016)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 39.2ms | ActiveRecord: 1.8ms | Allocations: 15919)
+
+
+Started GET "/" for ::1 at 2020-01-30 15:17:37 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:32
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:38
+  Rendered tweets/_profile.html.erb (Duration: 6.0ms | Allocations: 2677)
+  Rendered tweets/_form.html.erb (Duration: 4.1ms | Allocations: 2977)
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_follow_button.html.erb (Duration: 0.0ms | Allocations: 9)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 5], ["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:26:in `following?'
+  [1m[36mRelationship Load (0.2ms)[0m  [1m[34mSELECT "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ? AND "relationships"."followed_id" = ? LIMIT ?[0m  [["follower_id", 5], ["followed_id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_follow_button.html.erb:9
+  Rendered tweets/_follow_button.html.erb (Duration: 6.5ms | Allocations: 1806)
+  Rendered tweets/_feed.html.erb (Duration: 17.6ms | Allocations: 7375)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 25.5ms | Allocations: 10995)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 39ms (Views: 35.8ms | ActiveRecord: 1.8ms | Allocations: 15887)
+
+
+Started DELETE "/relationships/3" for ::1 at 2020-01-30 15:17:41 -0500
+Processing by RelationshipsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"LpE23mJmPqblBrCcgn3UBeolTYqcciFxTK9n6C6pFvg+tpSn+wOZTs2eW9yCoZrEazcZi60zSl+NLbppHzAEvw==", "commit"=>"Unfollow", "id"=>"3"}
+  [1m[36mRelationship Load (0.3ms)[0m  [1m[34mSELECT "relationships".* FROM "relationships" WHERE "relationships"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/relationships_controller.rb:10:in `destroy'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/relationships_controller.rb:10:in `destroy'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/relationships_controller.rb:11:in `destroy'
+  [1m[36mRelationship Load (0.2ms)[0m  [1m[34mSELECT "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ? AND "relationships"."followed_id" = ? LIMIT ?[0m  [["follower_id", 5], ["followed_id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `unfollow'
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:22:in `unfollow'
+  [1m[36mRelationship Destroy (2.0ms)[0m  [1m[31mDELETE FROM "relationships" WHERE "relationships"."id" = ?[0m  [["id", 3]]
+  ↳ app/models/user.rb:22:in `unfollow'
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:22:in `unfollow'
+Redirected to http://localhost:3000/
+Completed 302 Found in 21ms (ActiveRecord: 4.1ms | Allocations: 4975)
+
+
+Started GET "/" for ::1 at 2020-01-30 15:17:41 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:4
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:32
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:38
+  Rendered tweets/_profile.html.erb (Duration: 8.4ms | Allocations: 2677)
+  Rendered tweets/_form.html.erb (Duration: 3.8ms | Allocations: 2978)
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_follow_button.html.erb (Duration: 0.1ms | Allocations: 9)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 5], ["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:26:in `following?'
+  Rendered tweets/_follow_button.html.erb (Duration: 2.2ms | Allocations: 1155)
+  Rendered tweets/_feed.html.erb (Duration: 13.7ms | Allocations: 6725)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 25.1ms | Allocations: 10345)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 36ms (Views: 32.2ms | ActiveRecord: 1.7ms | Allocations: 15262)
+
+
+Started GET "/" for ::1 at 2020-01-30 15:22:34 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:4
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:32
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:38
+  Rendered tweets/_profile.html.erb (Duration: 20.3ms | Allocations: 2677)
+  Rendered tweets/_form.html.erb (Duration: 8.5ms | Allocations: 2977)
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_follow_button.html.erb (Duration: 0.0ms | Allocations: 9)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 5], ["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:26:in `following?'
+  Rendered tweets/_follow_button.html.erb (Duration: 14.2ms | Allocations: 1144)
+  Rendered tweets/_feed.html.erb (Duration: 41.4ms | Allocations: 6713)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 68.6ms | Allocations: 10333)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 93ms (Views: 87.9ms | ActiveRecord: 1.9ms | Allocations: 15252)
+
+
+Started GET "/" for ::1 at 2020-01-30 15:23:41 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:4
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:32
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:38
+  Rendered tweets/_profile.html.erb (Duration: 6.9ms | Allocations: 2875)
+  Rendered tweets/_form.html.erb (Duration: 4.7ms | Allocations: 3146)
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_follow_button.html.erb (Duration: 0.6ms | Allocations: 275)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 5], ["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:26:in `following?'
+  Rendered tweets/_follow_button.html.erb (Duration: 2.5ms | Allocations: 1149)
+  Rendered tweets/_feed.html.erb (Duration: 16.6ms | Allocations: 7942)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 28.4ms | Allocations: 12184)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1375ms (Views: 1372.3ms | ActiveRecord: 1.3ms | Allocations: 127171)
+
+
+Started GET "/" for ::1 at 2020-01-30 15:23:58 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:32
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:38
+  Rendered tweets/_profile.html.erb (Duration: 4.4ms | Allocations: 2678)
+  Rendered tweets/_form.html.erb (Duration: 5.6ms | Allocations: 2984)
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_follow_button.html.erb (Duration: 0.0ms | Allocations: 9)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 5], ["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:26:in `following?'
+  Rendered tweets/_follow_button.html.erb (Duration: 3.5ms | Allocations: 1145)
+  Rendered tweets/_feed.html.erb (Duration: 15.6ms | Allocations: 6724)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 21.9ms | Allocations: 10345)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1166ms (Views: 1163.6ms | ActiveRecord: 1.4ms | Allocations: 123563)
+
+
+Started GET "/" for ::1 at 2020-01-30 15:24:07 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:4
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:32
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:38
+  Rendered tweets/_profile.html.erb (Duration: 4.7ms | Allocations: 2678)
+  Rendered tweets/_form.html.erb (Duration: 3.5ms | Allocations: 2981)
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_follow_button.html.erb (Duration: 0.1ms | Allocations: 9)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 5], ["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:26:in `following?'
+  Rendered tweets/_follow_button.html.erb (Duration: 2.2ms | Allocations: 1144)
+  Rendered tweets/_feed.html.erb (Duration: 15.0ms | Allocations: 6717)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 21.7ms | Allocations: 10338)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1209ms (Views: 1206.0ms | ActiveRecord: 1.9ms | Allocations: 123629)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2020-01-30 15:24:31 -0500
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"rliLVzgDW+8sEyHJq9oV1fbgM6cUqPzSAJR5/URACKu+fykuoWb8BwSLyomrBlsUd/JnpiXpl/zBFqR8ddka7A=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 18ms (ActiveRecord: 0.2ms | Allocations: 4922)
+
+
+Started GET "/" for ::1 at 2020-01-30 15:24:31 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_feed.html.erb (Duration: 7.4ms | Allocations: 2303)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 8.1ms | Allocations: 2441)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 19.1ms | ActiveRecord: 0.6ms | Allocations: 7472)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-01-30 15:24:33 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.7ms | Allocations: 514)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 39.5ms | Allocations: 9058)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 63ms (Views: 60.9ms | ActiveRecord: 0.0ms | Allocations: 15257)
+
+
+Started GET "/users/sign_up" for ::1 at 2020-01-30 15:24:34 -0500
+Processing by RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 117)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 21.8ms | Allocations: 10211)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 37ms (Views: 35.9ms | ActiveRecord: 0.0ms | Allocations: 16794)
+
+
+Started GET "/" for ::1 at 2020-01-30 15:24:36 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.7ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_feed.html.erb (Duration: 8.7ms | Allocations: 2304)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 9.8ms | Allocations: 2443)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 27.1ms | ActiveRecord: 0.9ms | Allocations: 7453)
+
+
+Started GET "/" for ::1 at 2020-01-30 15:24:37 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_feed.html.erb (Duration: 10.8ms | Allocations: 2304)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 11.3ms | Allocations: 2442)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 47ms (Views: 45.0ms | ActiveRecord: 0.7ms | Allocations: 7436)
+
+
+Started GET "/" for ::1 at 2020-01-30 15:24:38 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_feed.html.erb (Duration: 6.3ms | Allocations: 2304)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 6.9ms | Allocations: 2442)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 18.2ms | ActiveRecord: 0.5ms | Allocations: 7468)
+
+
+Started GET "/" for ::1 at 2020-01-30 15:24:38 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_feed.html.erb (Duration: 10.4ms | Allocations: 2304)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 10.7ms | Allocations: 2442)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 19.4ms | ActiveRecord: 0.9ms | Allocations: 7439)
+
+
+Started GET "/" for ::1 at 2020-01-30 15:24:39 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_feed.html.erb (Duration: 4.0ms | Allocations: 2304)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 2442)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.7ms | ActiveRecord: 0.4ms | Allocations: 7437)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-01-30 15:24:41 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 131)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 16.2ms | Allocations: 8303)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 29.3ms | ActiveRecord: 0.0ms | Allocations: 13460)
+
+
+Started GET "/" for ::1 at 2020-01-30 15:25:42 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_feed.html.erb (Duration: 10.3ms | Allocations: 2809)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 11.9ms | Allocations: 3231)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 21.8ms | ActiveRecord: 0.6ms | Allocations: 9579)
+
+
+Started GET "/" for ::1 at 2020-01-30 15:25:43 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_feed.html.erb (Duration: 6.0ms | Allocations: 2304)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 6.5ms | Allocations: 2442)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 19.1ms | ActiveRecord: 0.5ms | Allocations: 7417)
+
+
+Started GET "/" for ::1 at 2020-01-30 15:27:15 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_feed.html.erb (Duration: 8.5ms | Allocations: 2809)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 10.0ms | Allocations: 3228)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 24.2ms | ActiveRecord: 0.6ms | Allocations: 9593)
+
+
+Started GET "/" for ::1 at 2020-01-30 15:27:25 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_feed.html.erb (Duration: 8.5ms | Allocations: 2810)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 9.6ms | Allocations: 3229)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 21.1ms | ActiveRecord: 0.6ms | Allocations: 9569)
+
+
+Started GET "/" for ::1 at 2020-01-30 15:27:26 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_feed.html.erb (Duration: 6.8ms | Allocations: 2304)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 7.3ms | Allocations: 2442)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.6ms | Allocations: 7420)
+
+
+Started GET "/" for ::1 at 2020-01-30 15:27:29 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_feed.html.erb (Duration: 6.1ms | Allocations: 2810)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 7.8ms | Allocations: 3230)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 23.5ms | ActiveRecord: 0.4ms | Allocations: 9597)
+
+
+Started GET "/" for ::1 at 2020-01-30 15:27:30 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_feed.html.erb (Duration: 7.4ms | Allocations: 2304)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 8.2ms | Allocations: 2442)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 18.2ms | ActiveRecord: 0.6ms | Allocations: 7446)
+
+
+Started GET "/" for ::1 at 2020-01-30 15:27:31 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_feed.html.erb (Duration: 3.8ms | Allocations: 2304)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 4.1ms | Allocations: 2442)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.4ms | Allocations: 7418)
+
+
+Started GET "/" for ::1 at 2020-01-30 15:27:48 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_feed.html.erb (Duration: 6.7ms | Allocations: 2809)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 7.7ms | Allocations: 3233)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 19.7ms | ActiveRecord: 0.4ms | Allocations: 9576)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-01-30 15:27:56 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.3ms | Allocations: 514)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 17.7ms | Allocations: 9056)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 32.0ms | ActiveRecord: 0.0ms | Allocations: 15216)
+
+
+Started POST "/users/sign_in" for ::1 at 2020-01-30 15:27:57 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"d/18yn1ZZRIRTLK0fEA7qX5ep8kLE6dJ/Pb+KlL3yxb6rFjPJVSKV5AB9Ubboa7IgGAIg/tZJ4IAxx1shKjlEg==", "user"=>{"email"=>"nickgarver1@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "nickgarver1@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 137ms (ActiveRecord: 0.1ms | Allocations: 3718)
+
+
+Started GET "/" for ::1 at 2020-01-30 15:27:57 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:4
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:32
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:38
+  Rendered tweets/_profile.html.erb (Duration: 10.0ms | Allocations: 2874)
+  Rendered tweets/_form.html.erb (Duration: 6.6ms | Allocations: 3147)
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_follow_button.html.erb (Duration: 1.6ms | Allocations: 275)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 5], ["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:26:in `following?'
+  Rendered tweets/_follow_button.html.erb (Duration: 5.1ms | Allocations: 1149)
+  Rendered tweets/_feed.html.erb (Duration: 25.2ms | Allocations: 7438)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 38.2ms | Allocations: 11392)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 52ms (Views: 48.7ms | ActiveRecord: 2.2ms | Allocations: 16319)
+
+
+Started GET "/" for ::1 at 2020-01-30 15:31:48 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:4
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:32
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:38
+  Rendered tweets/_profile.html.erb (Duration: 6.3ms | Allocations: 2677)
+  Rendered tweets/_form.html.erb (Duration: 3.4ms | Allocations: 2978)
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_follow_button.html.erb (Duration: 0.0ms | Allocations: 9)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 5], ["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:26:in `following?'
+  Rendered tweets/_follow_button.html.erb (Duration: 3.0ms | Allocations: 1144)
+  Rendered tweets/_feed.html.erb (Duration: 11.0ms | Allocations: 6714)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 19.3ms | Allocations: 10334)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/luna/Dev/twitter/gaslight-twitter/public/packs
+[Webpacker] Hash: b0d558a3ed206bffa780
+Version: webpack 4.41.5
+Time: 3032ms
+Built at: 01/30/2020 3:31:53 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-7e40d66798a321082c83.js    124 KiB  application  [emitted] [immutable]  application
+js/application-7e40d66798a321082c83.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-7e40d66798a321082c83.js js/application-7e40d66798a321082c83.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 853 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+Completed 200 OK in 5640ms (Views: 5638.4ms | ActiveRecord: 1.4ms | Allocations: 16411)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2020-01-30 15:31:56 -0500
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"4RLAagCjk0dzNP8w42+yBYOSZN1iEaHmH+1rrn8v1OV48+CeOgUz+3+wDHGF4ZlMVKaEQgT9Adq/MVEmjDWb4A=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.2ms | Allocations: 2127)
+
+
+Started GET "/" for ::1 at 2020-01-30 15:31:56 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_feed.html.erb (Duration: 4.8ms | Allocations: 2303)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 5.7ms | Allocations: 2441)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 22.9ms | ActiveRecord: 0.4ms | Allocations: 7440)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-01-30 15:33:17 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 131)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 24.8ms | Allocations: 8304)
+[Webpacker] Compiling...
+Started GET "/users/sign_in" for ::1 at 2020-01-30 15:33:19 -0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 131)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 29.0ms | Allocations: 8290)
+[Webpacker] Compiling...
+Started GET "/users/sign_in" for ::1 at 2020-01-30 15:33:20 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 131)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 24.5ms | Allocations: 8289)
+[Webpacker] Compiling...
+Started GET "/users/sign_in" for ::1 at 2020-01-30 15:33:21 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 131)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 33.6ms | Allocations: 8293)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/luna/Dev/twitter/gaslight-twitter/public/packs
+[Webpacker] Hash: 53154d7baad00c6a1252
+Version: webpack 4.41.5
+Time: 2355ms
+Built at: 01/30/2020 3:33:22 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-0b67a3cc2fcde6055024.js    124 KiB  application  [emitted] [immutable]  application
+js/application-0b67a3cc2fcde6055024.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-0b67a3cc2fcde6055024.js js/application-0b67a3cc2fcde6055024.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+Completed 200 OK in 5679ms (Views: 5672.5ms | ActiveRecord: 0.0ms | Allocations: 61148)
+
+
+[Webpacker] Compiled all packs in /Users/luna/Dev/twitter/gaslight-twitter/public/packs
+[Webpacker] Hash: 53154d7baad00c6a1252
+Version: webpack 4.41.5
+Time: 1547ms
+Built at: 01/30/2020 3:33:25 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-0b67a3cc2fcde6055024.js    124 KiB  application  [emitted] [immutable]  application
+js/application-0b67a3cc2fcde6055024.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-0b67a3cc2fcde6055024.js js/application-0b67a3cc2fcde6055024.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+Completed 200 OK in 6090ms (Views: 6088.0ms | ActiveRecord: 0.0ms | Allocations: 47581)
+
+
+Started GET "/" for ::1 at 2020-01-30 15:33:26 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (1.5ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_feed.html.erb (Duration: 11.3ms | Allocations: 2333)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 23.7ms | Allocations: 2471)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 149ms (Views: 145.6ms | ActiveRecord: 1.9ms | Allocations: 7452)
+
+
+[Webpacker] Compiled all packs in /Users/luna/Dev/twitter/gaslight-twitter/public/packs
+[Webpacker] Hash: 53154d7baad00c6a1252
+Version: webpack 4.41.5
+Time: 1927ms
+Built at: 01/30/2020 3:33:26 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-0b67a3cc2fcde6055024.js    124 KiB  application  [emitted] [immutable]  application
+js/application-0b67a3cc2fcde6055024.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-0b67a3cc2fcde6055024.js js/application-0b67a3cc2fcde6055024.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+Completed 200 OK in 6154ms (Views: 6152.0ms | ActiveRecord: 0.0ms | Allocations: 43227)
+
+
+[Webpacker] Compiled all packs in /Users/luna/Dev/twitter/gaslight-twitter/public/packs
+[Webpacker] Hash: 53154d7baad00c6a1252
+Version: webpack 4.41.5
+Time: 1792ms
+Built at: 01/30/2020 3:33:27 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-0b67a3cc2fcde6055024.js    124 KiB  application  [emitted] [immutable]  application
+js/application-0b67a3cc2fcde6055024.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-0b67a3cc2fcde6055024.js js/application-0b67a3cc2fcde6055024.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+Completed 200 OK in 5805ms (Views: 5803.9ms | ActiveRecord: 0.0ms | Allocations: 29628)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-01-30 15:33:29 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 131)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 25.7ms | Allocations: 8289)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 40ms (Views: 38.4ms | ActiveRecord: 0.0ms | Allocations: 13415)
+
+
+Started POST "/users/sign_in" for ::1 at 2020-01-30 15:33:33 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"W/R5ByXRDe2YVa924eiBhjBPvD8c8nq9trEJZ9tlwFlq7tvU+GNEfKA9BBkvG/LjGnj3DU2hieTYDpblOsDv9A==", "user"=>{"email"=>"nickgarver1@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "nickgarver1@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 137ms (ActiveRecord: 0.3ms | Allocations: 2667)
+
+
+Started GET "/" for ::1 at 2020-01-30 15:33:33 -0500
+Processing by TweetsController#index as HTML
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:4
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:32
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:38
+  Rendered tweets/_profile.html.erb (Duration: 10.7ms | Allocations: 2767)
+  Rendered tweets/_form.html.erb (Duration: 5.1ms | Allocations: 2982)
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_follow_button.html.erb (Duration: 0.1ms | Allocations: 9)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 5], ["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:26:in `following?'
+  Rendered tweets/_follow_button.html.erb (Duration: 2.9ms | Allocations: 1144)
+  Rendered tweets/_feed.html.erb (Duration: 15.4ms | Allocations: 6743)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 28.0ms | Allocations: 10477)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 37ms (Views: 34.0ms | ActiveRecord: 2.5ms | Allocations: 15387)
+
+
+Started POST "/tweets" for ::1 at 2020-01-30 15:33:42 -0500
+Processing by TweetsController#create as HTML
+  Parameters: {"authenticity_token"=>"25FQTFXFYUWKCTy2w4Te7wDQN+/Iu8/MPBGkGhEE88rLP9CHm2Vw5Zz4AiB8XssYkpKpOq+LOzygozlZbDiQXw==", "tweet"=>{"tweet"=>"poop"}, "commit"=>"Create Tweet"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tweets_controller.rb:32:in `block in create'
+  [1m[36mTweet Create (2.1ms)[0m  [1m[32mINSERT INTO "tweets" ("tweet", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["tweet", "poop"], ["created_at", "2020-01-30 20:33:42.196930"], ["updated_at", "2020-01-30 20:33:42.196930"], ["user_id", 5]]
+  ↳ app/controllers/tweets_controller.rb:32:in `block in create'
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tweets_controller.rb:32:in `block in create'
+Redirected to http://localhost:3000/?notice=Tweet+was+successfully+created.
+Completed 302 Found in 16ms (ActiveRecord: 3.4ms | Allocations: 4119)
+
+
+Started GET "/?notice=Tweet+was+successfully+created." for ::1 at 2020-01-30 15:33:42 -0500
+Processing by TweetsController#index as HTML
+  Parameters: {"notice"=>"Tweet was successfully created."}
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:4
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:32
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:38
+  Rendered tweets/_profile.html.erb (Duration: 8.9ms | Allocations: 2678)
+  Rendered tweets/_form.html.erb (Duration: 7.4ms | Allocations: 2980)
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_follow_button.html.erb (Duration: 0.1ms | Allocations: 9)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_follow_button.html.erb (Duration: 0.1ms | Allocations: 9)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 5], ["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:26:in `following?'
+  Rendered tweets/_follow_button.html.erb (Duration: 4.5ms | Allocations: 1144)
+  Rendered tweets/_feed.html.erb (Duration: 24.6ms | Allocations: 7637)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 36.7ms | Allocations: 11258)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 88ms (Views: 84.9ms | ActiveRecord: 2.5ms | Allocations: 16175)
+
+
+Started GET "/tweets/13/edit" for ::1 at 2020-01-30 15:35:43 -0500
+Processing by TweetsController#edit as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:69:in `set_tweet'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering tweets/edit.html.erb within layouts/application
+  Rendered tweets/_form.html.erb (Duration: 5.7ms | Allocations: 3144)
+  Rendered tweets/edit.html.erb within layouts/application (Duration: 8.9ms | Allocations: 3474)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 17.2ms | ActiveRecord: 0.3ms | Allocations: 10490)
+
+
+Started POST "/relationships" for ::1 at 2020-01-30 15:35:56 -0500
+Processing by RelationshipsController#create as HTML
+  Parameters: {"authenticity_token"=>"mKndKdZ26zoOe99z7NpapVyh4UdsQBR4v0w+5oYYQOGIB13iGNb6mhiK4eVTAE9SzuN/kgtw4Igj/qOl+yQjdA==", "followed_id"=>"4", "commit"=>"Follow"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/relationships_controller.rb:4:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/relationships_controller.rb:5:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:17:in `follow'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:17:in `follow'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:17:in `follow'
+  [1m[36mRelationship Create (0.5ms)[0m  [1m[32mINSERT INTO "relationships" ("follower_id", "followed_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["follower_id", 5], ["followed_id", 4], ["created_at", "2020-01-30 20:35:56.715190"], ["updated_at", "2020-01-30 20:35:56.715190"]]
+  ↳ app/models/user.rb:17:in `follow'
+  [1m[35m (4.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:17:in `follow'
+Redirected to http://localhost:3000/?notice=Tweet+was+successfully+created.
+Completed 302 Found in 24ms (ActiveRecord: 5.5ms | Allocations: 6690)
+
+
+Started GET "/?notice=Tweet+was+successfully+created." for ::1 at 2020-01-30 15:35:56 -0500
+Processing by TweetsController#index as HTML
+  Parameters: {"notice"=>"Tweet was successfully created."}
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:4
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:26
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:32
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 5]]
+  ↳ app/views/tweets/_profile.html.erb:38
+  Rendered tweets/_profile.html.erb (Duration: 13.3ms | Allocations: 2676)
+  Rendered tweets/_form.html.erb (Duration: 4.3ms | Allocations: 2978)
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at DESC[0m
+  ↳ app/views/tweets/_feed.html.erb:15
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_follow_button.html.erb (Duration: 0.1ms | Allocations: 9)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  Rendered tweets/_follow_button.html.erb (Duration: 0.1ms | Allocations: 9)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_feed.html.erb:20
+  [1m[36mUser Exists? (4.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 5], ["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:26:in `following?'
+  [1m[36mRelationship Load (0.3ms)[0m  [1m[34mSELECT "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ? AND "relationships"."followed_id" = ? LIMIT ?[0m  [["follower_id", 5], ["followed_id", 4], ["LIMIT", 1]]
+  ↳ app/views/tweets/_follow_button.html.erb:9
+  Rendered tweets/_follow_button.html.erb (Duration: 75.7ms | Allocations: 1823)
+  Rendered tweets/_feed.html.erb (Duration: 106.5ms | Allocations: 8315)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 123.8ms | Allocations: 11934)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 140ms (Views: 132.3ms | ActiveRecord: 6.5ms | Allocations: 16822)
+
+
