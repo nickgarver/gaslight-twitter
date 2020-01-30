@@ -12,32 +12,36 @@
   </article>
   <% end %>
 
-<% @tweets.each do | tweet | %>
+<% @tweets.each do | post | %>
   <div class="box">
     <article class="media">
       <div class="media-left">
         <figure class="image is-64x64">
-          <%= gravatar_image_tag(tweet.user.email, size: 64, alt: tweet.user.name) %>
+          <%= gravatar_image_tag(post.user.email, size: 64, alt: post.user.name) %>
         </figure>
       </div>
       <div class="media-content">
+
         <div class="content">
-          <strong><%= tweet.user.name%></strong>
-          <small><%= "@" + tweet.user.username%></small>
-          <p><%= tweet.tweet %></p>
+          <strong><%= post.user.name%></strong>
+          <small><%= "@" + post.user.username%></small>
+          <p><%= post.tweet %></p>
         </div>
-        <% if user_signed_in? && current_user.id == tweet.user_id %>
+
+        <% if user_signed_in? %>
         <nav class="level">
           <div class="level-left is-mobile">
-            <%= link_to tweet, class: "level-item" do %>
-                <span class="icon"><i class="fa fa-link" aria-hidden="true"></i></span>
+            <%= link_to post, class: "level-item" do %>
+                <span class="icon"><i class="fa fa-reply" aria-hidden="true"></i></span>
             <% end %>
-            <%= link_to edit_tweet_path(tweet), class: "level-item" do %>
-              <span class="icon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+            <%= link_to edit_tweet_path(post), class: "level-item" do %>
+              <span class="icon"><i class="fa fa-heart" aria-hidden="true"></i></span>
             <% end %>
-            <%= link_to tweet, method: :delete, data: {confirm: "delete this tweet?"
+            <% if current_user.id == post.user_id %>
+            <%= link_to post, method: :delete, data: {confirm: "delete this tweet?"
               } do %>
                 <span class="icon"><i class="fa fa-trash" aria-hidden="true"></i></span>
+            <% end %>
             <% end %>
           </div>
         </nav>

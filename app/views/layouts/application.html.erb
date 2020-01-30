@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>GaslightTwitter</title>
+    <title>Fake Twitter</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -24,17 +24,18 @@
       </div>
     <% end %>
 
-    <nav class="navbar is-info">
-      <div class="navbar-brand">
+    <nav class="navbar is-info" style="padding: 0px;">
+
+      <div class="navbar-brand"  style="font-size: 2rem;">
         <%= link_to root_path, class: "navbar-item" do %>
-        <h1 class="title is-5">Twitter</h1>
+        <!-- <h1 class="title is-5">Twitter</h1> -->
+        <span class="icon"><i class="fa fa-twitter" aria-hidden="true"></i></span>
         <% end %>
         <div class="navbar-burger burger" data-target="navbarExample">
           <span></span>
           <span></span>
           <span></span>
-        </div>
-      </div>
+        </div></div>
 
       <div id="navbarExample" class="navbar-menu">
         <div class="navbar-end">
@@ -43,27 +44,22 @@
             <%= link_to 'New Tweet', root_path, class: "button is-info is-inverted" %>
             </p>
             <% if user_signed_in? %>
-
-              <p class="control" >
-                <%= link_to current_user.name, edit_user_registration_path, class: "button is-info"%>
-              </p>
-              <p>
-                <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "button is-info" %>
-              </p>
-
+            <p class="control" >
+              <%= link_to current_user.name, edit_user_registration_path, class: "button is-dark"%>
+            </p>
+            <p>
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "button is-dark" %>
+            </p>
             <% else %>
-
             <p class="control">
               <%= link_to "Sign In", new_user_session_path, class: "button is-info" %>
             </p>
             <p class="control">
               <%= link_to "Sign Up", new_user_registration_path, class: "button is-info" %>
             </p>
-
             <% end %>
           </div>
-        </div>
-      </div>
+        </div></div>
 
     </nav>
 
