@@ -25,6 +25,7 @@
         <div class="content">
           <strong><%= post.user.name%></strong>
           <small><%= "@" + post.user.username%></small>
+          <%= render "follow_button", :oUser => post.user %>
           <p><%= post.tweet %></p>
         </div>
 

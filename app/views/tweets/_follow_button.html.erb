@@ -1,0 +1,15 @@
+<% if current_user.id != oUser.id %>
+<div class="control">
+  <% if !current_user.following?(oUser) %>
+    <%= form_for(current_user.active_relationships.build) do |f| %>
+      <div><%= hidden_field_tag :followed_id, oUser.id %></div>
+      <%= f.submit "Follow", class: "button is-info is-small is-rounded" %>
+    <% end %>
+  <% else %>
+    <%= form_for(current_user.active_relationships.find_by(followed_id: oUser.id),
+          html: { method: :delete}) do |f| %>
+          <%= f.submit "Unfollow", class: "button is-info is-small is-rounded" %>
+    <% end %>
+  <% end %>
+</div>
+<% end %>
